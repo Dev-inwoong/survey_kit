@@ -10,17 +10,13 @@ class TextAnswerFormat implements AnswerFormat {
   final String hint;
 
   /// Regular expression by which the text gets validated
-  /// default: '^(?!\s*$).+' that checks if the entered text is empty
-  /// to allow any type of an answer including an empty one;
-  /// set it explicitly to null.
-  ///
-  @JsonKey(defaultValue: '^(?!\s*\$).+')
+  ///  e.g '^(?!\s*$).+' checks if the entered text is empty
   final String? validationRegEx;
 
   const TextAnswerFormat({
     this.maxLines,
     this.hint = '',
-    this.validationRegEx = '^(?!\s*\$).+',
+    this.validationRegEx,
   }) : super();
 
   factory TextAnswerFormat.fromJson(Map<String, dynamic> json) =>

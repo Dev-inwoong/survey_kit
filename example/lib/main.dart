@@ -42,7 +42,13 @@ class _MyAppState extends State<MyApp> {
                       'next': 'Next',
                     },
                     themeData: Theme.of(context).copyWith(
+                      colorScheme: ColorScheme.fromSwatch(
+                        primarySwatch: Colors.cyan,
+                      ).copyWith(
+                        onPrimary: Colors.white,
+                      ),
                       primaryColor: Colors.cyan,
+                      backgroundColor: Colors.white,
                       appBarTheme: const AppBarTheme(
                         color: Colors.white,
                         iconTheme: IconThemeData(
@@ -90,14 +96,14 @@ class _MyAppState extends State<MyApp> {
                               if (state.contains(MaterialState.disabled)) {
                                 return Theme.of(context)
                                     .textTheme
-                                    .labelLarge
+                                    .button
                                     ?.copyWith(
                                       color: Colors.grey,
                                     );
                               }
                               return Theme.of(context)
                                   .textTheme
-                                  .labelLarge
+                                  .button
                                   ?.copyWith(
                                     color: Colors.cyan,
                                   );
@@ -108,26 +114,26 @@ class _MyAppState extends State<MyApp> {
                       textButtonTheme: TextButtonThemeData(
                         style: ButtonStyle(
                           textStyle: MaterialStateProperty.all(
-                            Theme.of(context).textTheme.labelLarge?.copyWith(
+                            Theme.of(context).textTheme.button?.copyWith(
                                   color: Colors.cyan,
                                 ),
                           ),
                         ),
                       ),
                       textTheme: TextTheme(
-                        displayMedium: TextStyle(
+                        headline2: TextStyle(
                           fontSize: 28.0,
                           color: Colors.black,
                         ),
-                        headlineSmall: TextStyle(
+                        headline5: TextStyle(
                           fontSize: 24.0,
                           color: Colors.black,
                         ),
-                        bodyMedium: TextStyle(
+                        bodyText2: TextStyle(
                           fontSize: 18.0,
                           color: Colors.black,
                         ),
-                        titleMedium: TextStyle(
+                        subtitle1: TextStyle(
                           fontSize: 18.0,
                           color: Colors.black,
                         ),
@@ -137,13 +143,6 @@ class _MyAppState extends State<MyApp> {
                           color: Colors.black,
                         ),
                       ),
-                      colorScheme: ColorScheme.fromSwatch(
-                        primarySwatch: Colors.cyan,
-                      )
-                          .copyWith(
-                            onPrimary: Colors.white,
-                          )
-                          .copyWith(background: Colors.white),
                     ),
                     surveyProgressbarConfiguration: SurveyProgressConfiguration(
                       backgroundColor: Colors.white,

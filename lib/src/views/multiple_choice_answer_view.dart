@@ -1,10 +1,9 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/src/answer_format/multiple_choice_answer_format.dart';
 import 'package:survey_kit/src/answer_format/text_choice.dart';
+import 'package:survey_kit/src/views/widget/selection_list_tile.dart';
 import 'package:survey_kit/src/result/question/multiple_choice_question_result.dart';
 import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
-import 'package:survey_kit/src/views/widget/selection_list_tile.dart';
 import 'package:survey_kit/src/views/widget/step_view.dart';
 
 class MultipleChoiceAnswerView extends StatefulWidget {
@@ -53,7 +52,7 @@ class _MultipleChoiceAnswerView extends State<MultipleChoiceAnswerView> {
       title: widget.questionStep.title.isNotEmpty
           ? Text(
               widget.questionStep.title,
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.headline2,
               textAlign: TextAlign.center,
             )
           : widget.questionStep.content,
@@ -65,7 +64,7 @@ class _MultipleChoiceAnswerView extends State<MultipleChoiceAnswerView> {
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Text(
                 widget.questionStep.text,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -93,52 +92,6 @@ class _MultipleChoiceAnswerView extends State<MultipleChoiceAnswerView> {
                       ),
                     )
                     .toList(),
-                if (_multipleChoiceAnswer.otherField) ...[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                    child: ListTile(
-                      title: TextField(
-                        onChanged: (v) {
-                          int? currentIndex;
-                          final otherTextChoice = _selectedChoices
-                              .firstWhereIndexedOrNull((index, element) {
-                            final isOtherField = element.text == 'Other';
-
-                            if (isOtherField) {
-                              currentIndex = index;
-                            }
-
-                            return isOtherField;
-                          });
-
-                          setState(() {
-                            if (v.isEmpty && otherTextChoice != null) {
-                              _selectedChoices.remove(otherTextChoice);
-                            } else if (v.isNotEmpty) {
-                              final updatedTextChoice =
-                                  TextChoice(text: 'Other', value: v);
-                              if (otherTextChoice == null) {
-                                _selectedChoices.add(updatedTextChoice);
-                              } else if (currentIndex != null) {
-                                _selectedChoices[currentIndex!] =
-                                    updatedTextChoice;
-                              }
-                            }
-                          });
-                        },
-                        decoration: InputDecoration(
-                          labelText: 'Other',
-                          labelStyle: Theme.of(context).textTheme.headlineSmall,
-                          hintText: 'Write other information here',
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                  ),
-                ],
               ],
             ),
           ],

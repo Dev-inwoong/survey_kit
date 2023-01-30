@@ -21,14 +21,14 @@ class CompletionView extends StatelessWidget {
         DateTime.now(),
       ),
       title: Text(completionStep.title,
-          style: Theme.of(context).textTheme.displayMedium),
+          style: Theme.of(context).textTheme.headline2),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0),
         child: Column(
           children: [
             Text(
               completionStep.text,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
             Padding(
@@ -37,15 +37,15 @@ class CompletionView extends StatelessWidget {
                 width: 150.0,
                 height: 150.0,
                 child: assetPath.isNotEmpty
-                    ? Lottie.asset(
-                        assetPath,
-                        repeat: false,
-                      )
-                    : Lottie.asset(
-                        'assets/fancy_checkmark.json',
-                        package: 'survey_kit',
-                        repeat: false,
-                      ),
+                ? Lottie.asset(
+                  assetPath,
+                  repeat: false,
+                )
+                : Lottie.asset(
+                  'assets/fancy_checkmark.json',
+                  package: 'survey_kit',
+                  repeat: false,
+                ),
               ),
             )
           ],

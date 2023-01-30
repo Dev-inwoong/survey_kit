@@ -1,7 +1,8 @@
 {
     "id": "123",
     "type": "navigable",
-    "rules": [{
+    "rules": [
+        {
             "type": "conditional",
             "triggerStepIdentifier": {
                 "id": "7"
@@ -14,45 +15,15 @@
         {
             "type": "direct",
             "triggerStepIdentifier": {
-                "id": "1"
+                "id": "11"
             },
             "destinationStepIdentifier": {
                 "id": "3"
             }
-        },
-        {
-            "type": "conditional",
-            "triggerStepIdentifier": {
-                "id": "6"
-            },
-            "values": {
-                "Penicillin": "7",
-                "Penicillin,Latex": "7",
-                "Penicillin,Latex,Pet": "11",
-                "Penicillin,Latex,Pet,Pollen": "11",
-                "Penicillin,Pet": "11",
-                "Penicillin,Pet,Pollen": "11",
-                "Penicillin,Pollen": "7",
-                "Latex": "7",
-                "Latex,Pet": "11",
-                "Latex,Pet,Pollen": "11",
-                "Latex,Pollen": "7",
-                "Pet": "11",
-                "Pet,Pollen": "11",
-                "Pollen": "7"
-            }
-        },
-        {
-            "type": "direct",
-            "triggerStepIdentifier": {
-                "id": "11"
-            },
-            "destinationStepIdentifier": {
-                "id": "7"
-            }
-        }
+        }  
     ],
-    "steps": [{
+    "steps": [
+        {
             "stepIdentifier": {
                 "id": "1"
             },
@@ -124,7 +95,8 @@
             "title": "Known allergies",
             "answerFormat": {
                 "type": "multiple",
-                "textChoices": [{
+                "textChoices": [
+                    {
                         "text": "Penicillin",
                         "value": "Penicillin"
                     },
@@ -152,7 +124,8 @@
             "text": "We are done, do you mind to tell us more about yourself?",
             "answerFormat": {
                 "type": "single",
-                "textChoices": [{
+                "textChoices": [
+                    {
                         "text": "Yes",
                         "value": "Yes"
                     },
@@ -192,98 +165,12 @@
         },
         {
             "stepIdentifier": {
-                "id": "12"
-            },
-            "type": "question",
-            "title": "Known allergies",
-            "answerFormat": {
-                "type": "multiple",
-                "otherField": true,
-                "textChoices": [{
-                        "text": "Penicillin",
-                        "value": "Penicillin"
-                    },
-                    {
-                        "text": "Latex",
-                        "value": "Latex"
-                    },
-                    {
-                        "text": "Pet",
-                        "value": "Pet"
-                    },
-                    {
-                        "text": "Pollen",
-                        "value": "Pollen"
-                    }
-                ]
-            }
-        },
-        {
-            "stepIdentifier": {
-                "id": "13"
-            },
-            "type": "question",
-            "title": "Medicines",
-            "answerFormat": {
-                "type": "multiple_auto_complete",
-                "otherField": true,
-                "textChoices": [{
-                        "text": "Penicillin",
-                        "value": "Penicillin"
-                    },
-                    {
-                        "text": "Latex",
-                        "value": "Latex"
-                    }
-
-                ],
-                "suggestions": [{
-                        "text": "Pet",
-                        "value": "Pet"
-                    },
-                    {
-                        "text": "Pollen",
-                        "value": "Pollen"
-                    }
-                ]
-            }
-        },
-        {
-            "stepIdentifier": {
                 "id": "10"
             },
             "type": "completion",
             "text": "Thanks for taking the survey, we will contact you soon!",
             "title": "Done!",
             "buttonText": "Restart"
-        },
-        {
-            "stepIdentifier": {
-                "id": "11"
-            },
-            "type": "question",
-            "title": "Pets",
-            "text": "What type of pet(s) do you have?",
-            "answerFormat": {
-                "type": "multiple",
-                "textChoices": [{
-                        "text": "Dog",
-                        "value": "Dog"
-                    },
-                    {
-                        "text": "Cat",
-                        "value": "Cat"
-                    },
-                    {
-                        "text": "Fish",
-                        "value": "Fish"
-                    },
-                    {
-                        "text": "Small Animal",
-                        "value": "Small Animal"
-                    }
-                ]
-            }
         }
     ]
 }

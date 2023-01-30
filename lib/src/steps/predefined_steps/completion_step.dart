@@ -33,8 +33,10 @@ class CompletionStep extends Step {
     return CompletionView(completionStep: this, assetPath: assetPath);
   }
 
-  factory CompletionStep.fromJson(Map<String, dynamic> json) =>
-      _$CompletionStepFromJson(json);
+  factory CompletionStep.fromJson(Map<String, dynamic> json){
+    return _$CompletionStepFromJson(json);
+  }
+
   Map<String, dynamic> toJson() => _$CompletionStepToJson(this);
 
   bool operator ==(o) =>

@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +14,7 @@ import 'package:survey_kit/src/task/ordered_task.dart';
 import 'package:survey_kit/src/task/task.dart';
 import 'package:survey_kit/src/views/widget/survey_app_bar.dart';
 import 'package:survey_kit/src/widget/survey_progress_configuration.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 
 class SurveyKit extends StatefulWidget {
   /// [Task] for the configuraton of the survey
@@ -178,9 +178,11 @@ class _SurveyPageState extends State<SurveyPage>
               controller: tabController,
               children: state.steps
                   .map(
-                    (e) => _SurveyView(
-                      id: e.stepIdentifier.id,
-                      createView: () => e.createView(
+                    (e) => Container(
+                      key: ValueKey<String>(
+                        e.stepIdentifier.id,
+                      ),
+                      child: e.createView(
                         questionResult: state.questionResults.firstWhereOrNull(
                           (element) => element.id == e.stepIdentifier,
                         ),
@@ -199,23 +201,6 @@ class _SurveyPageState extends State<SurveyPage>
           child: CircularProgressIndicator(),
         );
       },
-    );
-  }
-}
-
-class _SurveyView extends StatelessWidget {
-  const _SurveyView({required this.id, required this.createView});
-
-  final String id;
-  final Widget Function() createView;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      key: ValueKey<String>(
-        id,
-      ),
-      child: createView(),
     );
   }
 }

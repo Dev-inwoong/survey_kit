@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:survey_kit/src/answer_format/text_answer_format.dart';
+import 'package:survey_kit/src/views/decoration/input_decoration.dart';
 import 'package:survey_kit/src/result/question/text_question_result.dart';
 import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
-import 'package:survey_kit/src/views/decoration/input_decoration.dart';
 import 'package:survey_kit/src/views/widget/step_view.dart';
 
 class TextAnswerView extends StatefulWidget {
@@ -41,8 +41,6 @@ class _TextAnswerViewState extends State<TextAnswerView> {
       if (_textAnswerFormat.validationRegEx != null) {
         RegExp regExp = new RegExp(_textAnswerFormat.validationRegEx!);
         _isValid = regExp.hasMatch(text);
-      } else {
-        _isValid = true;
       }
     });
   }
@@ -67,7 +65,7 @@ class _TextAnswerViewState extends State<TextAnswerView> {
       title: widget.questionStep.title.isNotEmpty
           ? Text(
               widget.questionStep.title,
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.headline2,
               textAlign: TextAlign.center,
             )
           : widget.questionStep.content,
@@ -79,7 +77,7 @@ class _TextAnswerViewState extends State<TextAnswerView> {
                 const EdgeInsets.only(bottom: 32.0, left: 14.0, right: 14.0),
             child: Text(
               widget.questionStep.text,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
           ),
@@ -87,8 +85,6 @@ class _TextAnswerViewState extends State<TextAnswerView> {
             width: MediaQuery.of(context).size.width,
             height: 50.0,
             child: TextField(
-              textInputAction: TextInputAction.next,
-              autofocus: true,
               decoration: textFieldInputDecoration(
                 hint: _textAnswerFormat.hint,
               ),
