@@ -7,7 +7,7 @@ import 'package:survey_kit/src/views/instruction_view.dart';
 
 part 'instruction_step.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class InstructionStep extends Step {
   final String title;
   final String text;
@@ -37,10 +37,8 @@ class InstructionStep extends Step {
     );
   }
 
-  factory InstructionStep.fromJson(Map<String, dynamic> json) {
-    return _$InstructionStepFromJson(json);
-  }
-
+  factory InstructionStep.fromJson(Map<String, dynamic> json) =>
+      _$InstructionStepFromJson(json);
   Map<String, dynamic> toJson() => _$InstructionStepToJson(this);
 
   bool operator ==(o) =>

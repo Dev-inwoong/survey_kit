@@ -34,7 +34,6 @@ abstract class Task {
   factory Task.fromJson(Map<String, dynamic> json) {
     final type = json['type'];
     if (type == 'ordered') {
-      print("orderdTask");
       return OrderedTask.fromJson(json);
     } else if (type == 'navigable') {
       return NavigableTask.fromJson(json);

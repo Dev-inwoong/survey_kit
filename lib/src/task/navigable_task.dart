@@ -41,6 +41,7 @@ class NavigableTask extends Task {
 
   factory NavigableTask.fromJson(Map<String, dynamic> json) {
     final Map<StepIdentifier, NavigationRule> navigationRules = {};
+
     if (json['rules'] != null) {
       final rules = json['rules'] as List;
       rules.forEach((rule) {
@@ -66,6 +67,4 @@ class NavigableTask extends Task {
         'steps': steps.map((step) => step.toJson()).toList(),
         'navigationRules': navigationRules,
       };
-  
-  
 }
