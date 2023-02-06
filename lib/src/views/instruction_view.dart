@@ -16,6 +16,7 @@ class InstructionView extends StatelessWidget {
       step: instructionStep,
       title: Bubble(
         color: Colors.yellow[700],
+        nip: BubbleNip.leftTop,
         child: Text(
           instructionStep.title,
           style: Theme.of(context).textTheme.headline2,
@@ -32,7 +33,9 @@ class InstructionView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Bubble(
           color: Colors.white,
-          child: Row(
+          nip: BubbleNip.rightTop,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 instructionStep.subtitle,
