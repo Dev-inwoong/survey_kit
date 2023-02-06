@@ -19,7 +19,7 @@ class InstructionView extends StatelessWidget {
         nip: BubbleNip.leftTop,
         child: Text(
           instructionStep.title,
-          style: Theme.of(context).textTheme.headline2,
+          style: Theme.of(context).textTheme.bodyText2,
           textAlign: TextAlign.center,
         ),
       ),
@@ -39,7 +39,7 @@ class InstructionView extends StatelessWidget {
             children: [
               Text(
                 instructionStep.subtitle,
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
               Container(
