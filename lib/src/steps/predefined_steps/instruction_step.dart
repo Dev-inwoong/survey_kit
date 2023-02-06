@@ -10,10 +10,12 @@ part 'instruction_step.g.dart';
 @JsonSerializable(explicitToJson: true)
 class InstructionStep extends Step {
   final String title;
+  final String subtitle;
   final String text;
 
   InstructionStep({
     required this.title,
+    required this.subtitle,
     required this.text,
     bool isOptional = false,
     String buttonText = 'Next',
@@ -45,6 +47,7 @@ class InstructionStep extends Step {
       super == (o) &&
       o is InstructionStep &&
       o.title == title &&
+      o.subtitle == subtitle &&
       o.text == text;
   int get hashCode => super.hashCode ^ title.hashCode ^ text.hashCode;
 }

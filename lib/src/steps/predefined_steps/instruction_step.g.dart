@@ -9,6 +9,7 @@ part of 'instruction_step.dart';
 InstructionStep _$InstructionStepFromJson(Map<String, dynamic> json) =>
     InstructionStep(
       title: json['title'] as String,
+      subtitle: json['subtitle'] as String,
       text: json['text'] as String,
       isOptional: json['isOptional'] as bool? ?? false,
       buttonText: json['buttonText'] as String? ?? 'Next',
@@ -30,5 +31,6 @@ Map<String, dynamic> _$InstructionStepToJson(InstructionStep instance) =>
       'showProgress': instance.showProgress,
       'showAppBar': instance.showAppBar,
       'title': instance.title,
+      'subtitle' : instance.subtitle,
       'text': instance.text,
     };
