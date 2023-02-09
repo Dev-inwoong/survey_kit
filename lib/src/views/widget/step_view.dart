@@ -45,10 +45,39 @@ class StepView extends StatelessWidget {
                 child,
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 32.0),
-                  child: OutlinedButton(
+                  child: step.stepIdentifier == "1"
+                      ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Stack(
+                        children: [
+                          Center(child: const Text("뒤로가기"),),
+                          const IconButton(
+                              onPressed: () {
+                                surveyController.stepBack(
+                                  context: context,
+                                );
+                              },
+                              icon: Image.asset("assets/images/Test_BackButton.png"))
+                        ],
+                      ),
+                      Stack(
+                        children: [
+                          Center(child: const Text("결과보기"),),
+                          const IconButton(
+                              onPressed: () {
+                                surveyController.closeSurvey(
+                                    context, resultFunction
+                                );
+                              },
+                              icon: Image.asset("assets/images/Test_ResultButton.png"))
+                        ],
+                      ),
+                    ],
+                  ) : OutlinedButton(
                     onPressed: isValid || step.isOptional
                         ? () =>
-                            surveyController.nextStep(context, resultFunction)
+                        surveyController.nextStep(context, resultFunction)
                         : null,
                     child: Text(
                       step.buttonText?.toUpperCase() ??
