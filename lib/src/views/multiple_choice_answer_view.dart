@@ -7,6 +7,7 @@ import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
 import 'package:survey_kit/src/views/widget/step_view.dart';
 import 'package:collection/collection.dart';
 
+
 class MultipleChoiceAnswerView extends StatefulWidget {
   final QuestionStep questionStep;
   final MultipleChoiceQuestionResult? result;
