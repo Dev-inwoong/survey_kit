@@ -15,12 +15,12 @@ class SelectionListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0),
-          child: Bubble(
-            color: Colors.white,
+    return Bubble(
+      color: Colors.white,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: ListTile(
               title: Text(
                 text,
@@ -61,12 +61,12 @@ class SelectionListTile extends StatelessWidget {
               onTap: () => onTap.call(),
             ),
           ),
-        ),
-        Divider(
-          color: Colors.grey,
-          thickness: 2.0,
-        ),
-      ],
+          Divider(
+            color: Colors.grey,
+            thickness: 2.0,
+          ),
+        ],
+      ),
     );
   }
 }
