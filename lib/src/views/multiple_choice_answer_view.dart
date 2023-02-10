@@ -52,13 +52,13 @@ class _MultipleChoiceAnswerView extends State<MultipleChoiceAnswerView> {
         result: _selectedChoices,
       ),
       isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
-      title: widget.questionStep.title.isNotEmpty
-          ? Text(
-              widget.questionStep.title,
-              style: Theme.of(context).textTheme.headline2,
-              textAlign: TextAlign.center,
-            )
-          : widget.questionStep.content,
+      // title: widget.questionStep.title.isNotEmpty
+      //     ? Text(
+      //         widget.questionStep.title,
+      //         style: Theme.of(context).textTheme.headline2,
+      //         textAlign: TextAlign.center,
+      //       )
+      //     : widget.questionStep.content,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Bubble(
