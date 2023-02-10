@@ -50,12 +50,10 @@ class StepView extends StatelessWidget {
                       OutlinedButton(
                           onPressed: () => surveyController.stepBack(context: context),
                           child: Text("뒤로 가기")),
-
-                      // OutlinedButton(
-                      //     onPressed: isValid || step.isOptional
-                      //         ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
-                      //     child: Text("결과 보기")),
-                      Image.asset("assets/images/back.png")
+                      OutlinedButton(
+                          onPressed: isValid || step.isOptional
+                              ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
+                          child: Text("결과 보기")),
                     ],
                   ):OutlinedButton(
                     onPressed: isValid || step.isOptional
