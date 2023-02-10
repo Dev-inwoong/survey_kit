@@ -24,7 +24,6 @@ class StepView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _surveyController = controller ?? context.read<SurveyController>();
-
     return _content(_surveyController, context);
   }
 
@@ -45,10 +44,23 @@ class StepView extends StatelessWidget {
                 child,
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 32.0),
-                  child: OutlinedButton(
+                  child: step.stepIdentifier.id == "2" ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      OutlinedButton(
+                          onPressed: () => surveyController.stepBack(context: context),
+                          child: Text("뒤로 가기")),
+
+                      // OutlinedButton(
+                      //     onPressed: isValid || step.isOptional
+                      //         ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
+                      //     child: Text("결과 보기")),
+                      Image.asset("assets/images/back.png")
+                    ],
+                  ):OutlinedButton(
                     onPressed: isValid || step.isOptional
                         ? () =>
-                            surveyController.nextStep(context, resultFunction)
+                        surveyController.nextStep(context, resultFunction)
                         : null,
                     child: Text(
                       step.buttonText?.toUpperCase() ??

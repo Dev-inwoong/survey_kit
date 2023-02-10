@@ -29,9 +29,7 @@ class SurveyAppBar extends StatelessWidget {
               Icons.arrow_back_ios,
             ),
             onPressed: () {
-              surveyController.stepBack(
-                context: context,
-              );
+              Navigator.pop(context);
             },
           )
           : Container(),

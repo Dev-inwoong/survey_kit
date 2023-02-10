@@ -37,11 +37,11 @@ class CompletionView extends StatelessWidget {
                 width: 150.0,
                 height: 150.0,
                 child: assetPath.isNotEmpty
-                ? Lottie.asset(
+                    ? Lottie.asset(
                   assetPath,
                   repeat: false,
                 )
-                : Lottie.asset(
+                    : Lottie.asset(
                   'assets/fancy_checkmark.json',
                   package: 'survey_kit',
                   repeat: false,
