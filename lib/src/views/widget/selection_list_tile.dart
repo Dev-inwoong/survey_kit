@@ -19,44 +19,47 @@ class SelectionListTile extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0),
-          child: ListTile(
-            title: Text(
-              text,
-              style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                color: isSelected
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).textTheme.headline5?.color,
-              ),
-            ),
-            trailing: isSelected
-                ? Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                  color: Colors.grey,
+          child: Bubble(
+            color: Colors.white,
+            child: ListTile(
+              title: Text(
+                text,
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                  color: isSelected
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).textTheme.headline5?.color,
                 ),
               ),
-              height: 20,
-              width: 20,
-              child: Icon(
-                Icons.check,
-                size: 20,
-                color: isSelected
-                    ? Theme.of(context).primaryColor
-                    : Colors.black,
-              ),
-            )
-                : Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                  color: Colors.grey,
+              trailing: isSelected
+                  ? Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.grey,
+                  ),
                 ),
+                height: 20,
+                width: 20,
+                child: Icon(
+                  Icons.check,
+                  size: 20,
+                  color: isSelected
+                      ? Theme.of(context).primaryColor
+                      : Colors.black,
+                ),
+              )
+                  : Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.grey,
+                  ),
+                ),
+                height: 20,
+                width: 20,
               ),
-              height: 20,
-              width: 20,
+              onTap: () => onTap.call(),
             ),
-            onTap: () => onTap.call(),
           ),
         ),
         Divider(
