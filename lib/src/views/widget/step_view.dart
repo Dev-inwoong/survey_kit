@@ -51,7 +51,7 @@ class StepView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           image:DecorationImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                             image: AssetImage("assets/images/tests/back.png"),
                           )
                         ),
@@ -62,7 +62,7 @@ class StepView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                             image:DecorationImage(
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
                               image: AssetImage("assets/images/tests/result.png"),
                             )
                         ),
