@@ -24,7 +24,6 @@ class StepView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _surveyController = controller ?? context.read<SurveyController>();
-
     return _content(_surveyController, context);
   }
 
@@ -45,22 +44,29 @@ class StepView extends StatelessWidget {
                 child,
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 32.0),
-                  child: OutlinedButton(
+                  child: step.stepIdentifier.id == "2" ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                          onPressed: () => surveyController.stepBack(context: context),
+                          child: Text("뒤로 가기", style: stepButtonStyle)),
+                      TextButton(
+                          onPressed: isValid || step.isOptional
+                              ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
+                          child: Text("결과 보기", style: stepButtonStyle)),
+                    ],
+                  ):TextButton(
                     onPressed: isValid || step.isOptional
                         ? () =>
-                            surveyController.nextStep(context, resultFunction)
+                        surveyController.nextStep(context, resultFunction)
                         : null,
                     child: Text(
-                      step.buttonText?.toUpperCase() ??
-                          context
-                              .read<Map<String, String>?>()?['next']
-                              ?.toUpperCase() ??
-                          'Next',
-                      style: TextStyle(
-                        color: isValid
-                            ? Theme.of(context).primaryColor
-                            : Colors.grey,
-                      ),
+                        step.buttonText?.toUpperCase() ??
+                            context
+                                .read<Map<String, String>?>()?['next']
+                                ?.toUpperCase() ??
+                            'Next',
+                        style: stepButtonStyle
                     ),
                   ),
                 ),
@@ -72,3 +78,9 @@ class StepView extends StatelessWidget {
     );
   }
 }
+TextStyle stepButtonStyle =
+TextStyle(
+    fontSize: 15,
+    color: Colors.black,
+    fontWeight: FontWeight.w800
+);
