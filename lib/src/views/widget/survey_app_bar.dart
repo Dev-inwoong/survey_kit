@@ -24,26 +24,25 @@ class SurveyAppBar extends StatelessWidget {
     return PlatformAppBar(
       leading: _canGoBack
           ? appBarConfiguration.leading ??
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                ),
-                onPressed: () {
-                  surveyController.stepBack(
-                    context: context,
-                  );
-                },
-              )
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
           : Container(),
-      title: _showProgress ? SurveyProgress() : SizedBox.shrink(),
-      trailingActions: [
-        IconButton(
-          icon: const Icon(Icons.home),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
+      title: const Text("자가진단 TEST", textAlign : TextAlign.center ,style: TextStyle(fontSize: 25),),
+      //title: _showProgress ? SurveyProgress() : SizedBox.shrink(),
+      // trailingActions: [
+      //   IconButton(
+      //     icon: const Icon(Icons.home),
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //   ),
+      // ],
     );
   }
 }

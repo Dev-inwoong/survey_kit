@@ -15,9 +15,9 @@ class SurveyController {
   /// );
   /// ```
   final Function(
-    BuildContext context,
-    QuestionResult Function() resultFunction,
-  )? onNextStep;
+      BuildContext context,
+      QuestionResult Function() resultFunction,
+      )? onNextStep;
 
   /// Defines what should happen if the previous step is called
   /// Default behavior is:
@@ -29,9 +29,9 @@ class SurveyController {
   /// );
   /// ```
   final Function(
-    BuildContext context,
-    QuestionResult Function()? resultFunction,
-  )? onStepBack;
+      BuildContext context,
+      QuestionResult Function()? resultFunction,
+      )? onStepBack;
 
   /// Defines what should happen if the survey should be closed
   /// Default behavior is:
@@ -43,9 +43,9 @@ class SurveyController {
   /// );
   /// ```
   final Function(
-    BuildContext context,
-    QuestionResult Function()? resultFunction,
-  )? onCloseSurvey;
+      BuildContext context,
+      QuestionResult Function()? resultFunction,
+      )? onCloseSurvey;
 
   SurveyController({
     this.onNextStep,
@@ -54,9 +54,9 @@ class SurveyController {
   });
 
   void nextStep(
-    BuildContext context,
-    QuestionResult Function() resultFunction,
-  ) {
+      BuildContext context,
+      QuestionResult Function() resultFunction,
+      ) {
     if (onNextStep != null) {
       onNextStep!(context, resultFunction);
       return;
