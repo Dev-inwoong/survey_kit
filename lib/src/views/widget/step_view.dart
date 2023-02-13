@@ -52,7 +52,7 @@ class StepView extends StatelessWidget {
                         decoration: BoxDecoration(
                           image:DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage("assets/images/back.png"),
+                            image: AssetImage("assets/images/tests/back.png"),
                           )
                         ),
                         child: TextButton(
@@ -63,7 +63,7 @@ class StepView extends StatelessWidget {
                         decoration: BoxDecoration(
                             image:DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage("assets/images/result.png"),
+                              image: AssetImage("assets/images/tests/result.png"),
                             )
                         ),
                         child: TextButton(
