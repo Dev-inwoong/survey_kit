@@ -47,13 +47,29 @@ class StepView extends StatelessWidget {
                   child: step.stepIdentifier.id == "2" ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextButton(
-                          onPressed: () => surveyController.stepBack(context: context),
-                          child: Text("뒤로 가기", style: stepButtonStyle)),
-                      TextButton(
-                          onPressed: isValid || step.isOptional
-                              ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
-                          child: Text("결과 보기", style: stepButtonStyle)),
+                      Container(
+                        decoration: BoxDecoration(
+                          image:DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage("assets/images/Test_BackButton.png"),
+                          )
+                        ),
+                        child: TextButton(
+                            onPressed: () => surveyController.stepBack(context: context),
+                            child: Text("뒤로 가기", style: stepButtonStyle)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            image:DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage("assets/images/Test_BackButton.png"),
+                            )
+                        ),
+                        child: TextButton(
+                            onPressed: isValid || step.isOptional
+                                ? () => surveyController.closeSurvey(context: context, resultFunction: resultFunction) : null,
+                            child: Text("결과 보기", style: stepButtonStyle)),
+                      ),
                     ],
                   ):TextButton(
                     onPressed: isValid || step.isOptional
